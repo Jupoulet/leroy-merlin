@@ -1,0 +1,10 @@
+.section h2 {
+  background: #67ac5b;
+  padding: 0.2em;
+  margin: 0;
+  color: white;
+}
+
+.section {
+  margin: 1em auto;
+}
