@@ -7,8 +7,10 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <div className="wrapper">
+      <div className="wrapper two_cols">
         <Plans />
+        <div>
+        </div>
       </div>
     </>
   );

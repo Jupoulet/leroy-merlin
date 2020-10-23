@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
