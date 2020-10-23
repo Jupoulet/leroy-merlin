@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+p {
+  font-family: Lato;
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+}
