@@ -1,0 +1,12 @@
+.section h2 {
+  background: #67ac5b;
+  padding: 0.2em;
+  margin: 0;
+  color: white;
+  font-size: 20px;
+}
+
+.section {
+  margin: 1em auto;
+  width: 100%;
+}

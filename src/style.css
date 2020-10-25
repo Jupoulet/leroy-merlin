@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Lato;
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+}
+
+.two_cols {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+}
