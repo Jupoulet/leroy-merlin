@@ -90,6 +90,26 @@ describe("getBestDrone", () => {
     assert.throw(() => getBestDrone({ drones: {}, store: {}, client: {} }), Error, "Arguments not valid")
     assert.throw(() => getBestDrone({ drones: [], store: "Paris",  client: {} }), Error, "Arguments not valid")
   })
+
+  it("Return the best drone among the drones availables", () => {
+    let drones = [{ id: "Alpha", x: 5, y: 10, autonomy: 0 }, { id: "Beta", x: 2, y: 20, autonomy: 28 }, { id: "Gamma", x: 5, y: 10, autonomy: 100 }]
+    let store = { id: "Villeneuve", x: 3, y: 3 }
+    let client = { id: "Jean", x: 5, y: 8 }
+    let client2 = { id: "Marc", x: 3, y: 17 }
+    let bestDrone = getBestDrone({ store, drones, client })
+    let bestDrone2 = getBestDrone( { store, client: client2, drones })
+    expect(bestDrone.drone.id).to.equal("Gamma")
+    expect(bestDrone2.drone.id).to.equal("Gamma")
+  })
+
+  it("Return null if no drones are found", () => {
+    let drones = [{ id: "Alpha", x: 5, y: 10, autonomy: 0 }, { id: "Beta", x: 2, y: 20, autonomy: 28 }, { id: "Gamma", x: 5, y: 10, autonomy: 25 }]
+    let store = { id: "Villeneuve", x: 3, y: 3 }
+    let client = { id: "Marc", x: 3, y: 17 }
+
+    let noDrone = getBestDrone({ store, drones, client })
+    expect(noDrone).to.be.null;
+  })
 })
 
 describe("calculateDistance", () => {

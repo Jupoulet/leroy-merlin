@@ -1,6 +1,6 @@
 const getStoresWithObjectInStock = ({ stores, object } = { }) => {
     if (!stores || !object) throw new Error("Missing required arguments")
-    if (!Array.isArray(stores) || typeof object !== 'string') throw new Error("Arguments not valid")
+    if (!Array.isArray(stores) || typeof object !== "string") throw new Error("Arguments not valid")
 
     return stores.filter((store) => {
         if (!store.stock) return false;
@@ -28,11 +28,21 @@ const getBestDrone = ({ drones, store, client } = { }) => {
     if (!drones || !store || !client) throw new Error("Missing required arguments")
     if (!Array.isArray(drones) || typeof store !== "object" || typeof client !== "object") throw new Error("Arguments not valid")
 
+    return drones.reduce((winnerDrone, drone) => {
+        let distanceDroneToStore = calculateDistance({ x1: drone.x, x2: store.x, y1: drone.y, y2: store.y });
+        let distanceStoreToClient = calculateDistance({ x1: store.x, x2: client.x, y1: store.y, y2: client.y });
+        let allDistanceToTravel = distanceDroneToStore + (distanceStoreToClient * 2)
+        if (!winnerDrone && allDistanceToTravel <= drone.autonomy) return { drone, allDistanceToTravel }
+        if (allDistanceToTravel <= drone.autonomy && allDistanceToTravel < winnerDrone.allDistanceToTravel) return { drone, allDistanceToTravel }
+
+        return winnerDrone;
+    }, null)
+
 }
 
 const calculateDistance = ({ x1, y1, x2, y2 } = { }) => {
     if(!x1 || !y1 || !x2 || !y2) throw new Error("Missing required arguments")
-    if ([x1, y1, x2, y2].filter(n => typeof n === 'number').length !== 4) throw new Error("All arguments must be numbers")
+    if ([x1, y1, x2, y2].filter(n => typeof n === "number").length !== 4) throw new Error("All arguments must be numbers")
 
     return Math.hypot(x2 -x1, y2 - y1).toFixed(2) / 1
 }

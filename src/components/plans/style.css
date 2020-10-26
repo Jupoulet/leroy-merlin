@@ -1,6 +1,6 @@
 .section h2 {
   background: #67ac5b;
-  padding: 0.2em;
+  padding: 0.2em 1em;
   margin: 0;
   color: white;
   font-size: 20px;
@@ -8,5 +8,23 @@
 
 .section {
   margin: 1em auto;
+  width: 100%;
+}
+
+.section__div {
+  border: solid 1px lightgrey;
+  padding: 1em;
+}
+
+.button {
+  background-color: white;
+  padding: 0.5em;
+  border-radius: 4px;
+  color: rgb(103, 172, 91, 0.7);
+  border: solid 1px rgb(103, 172, 91, 0.7);
+  cursor: pointer;
+}
+
+table {
   width: 100%;
 }

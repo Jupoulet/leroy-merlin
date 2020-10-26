@@ -1,0 +1,15 @@
+.th {
+    text-transform: uppercase;
+
+}
+
+.td, .th {
+    text-align: left;
+    padding: 10px 15px;
+    border-bottom: 1px solid lightgrey;
+    border-spacing: 0px;
+}
+
+table {
+    border-spacing: 0px;
+}
